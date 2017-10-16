@@ -25,7 +25,7 @@
 	/*Bagian pengaturan navbar*/
 	nav ul {
 	 background: black;
-	 padding: 0 px;
+	 padding: 0px;
 	 list-style: none;
 	 display: inline-table;
 	 width: 100%;
@@ -78,8 +78,7 @@
 		
 	}
 	.search {
-		padding:5px 20px;
-		margin : 25px;	
+		padding:5px 20px;	
 		background:rgba(50, 50, 50, 0.9);
 		border:0px solid #dbdbdb;
 		position : middle;
@@ -87,6 +86,7 @@
 	.button {
 		padding:2px 10px;
 		left:-8px;
+		margin : 25px;
 		border:2px solid #53bd84;
 		background-color:#53bd84;
 		color:#fafafa;
@@ -116,13 +116,13 @@
 	/* Set a style for all buttons */
 	.signButton {
 		font-family: Open Sans;
-		background-color: #4CAF50;
-		color: white;
-		padding: 14px 20px;
-		margin: 8px 0;
+		background-color: #dcdddd;
+		color: black;
+		padding: 10px 10px;
+		margin: 20px 0px;
 		border: none;
 		cursor: pointer;
-		width: 30%;
+		width: 20%;
 	}
 
 	/* Add a hover effect for buttons */
@@ -140,22 +140,19 @@
 	.container {
 		padding: 16px;
 	}
-/*form signIn - signUp*/
+/*form signIn - signUp -- end*/
 
 /*footer*/
 	.footer{
-		
 		font-family:Open Sans;
 		color:white;
 		height: 200px;
 		width: 100%;
 		background: #1b1e23;
 		bottom: 0;
-		position : absolute;
-		
 	}
 	.icon-bar {
-		overflow: auto;
+		overflow: visible;
 	}
 	.icon-bar a {
 		padding: 20px 8px;
@@ -165,10 +162,11 @@
 		/*Bikin jadi transparan kalo di hover*/
 		opacity: 0.5;
 	}
-/*footer end*/
+/*footer --- end*/
 
 /*Isi*/
 	.isi{
 		font-family: Open Sans;
 		color:black;
 	}
+/*Isi -- end*/
