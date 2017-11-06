@@ -1,0 +1,149 @@
+* {margin:0; padding:0;}
+ /*Bagian Isi*/
+body {
+ background-color:grey;
+ font-family:Arial, Helvetica, sans-serif;
+ color:#000;
+}
+/*Bagian Jarak Sub menu Navbar*/
+nav {
+ margin:auto;
+ text-align: center;
+ width: 100%;
+ position : fixed;
+
+} 
+
+
+/*Bagian untuk menyembunyikan sub menu navbar*/
+nav ul ul {
+ display: none;
+}
+/*Bagian untuk mengatur sub menu navbar*/
+nav ul li:hover > ul{
+background : black;
+display : block;
+width: 300px;
+
+}
+/*Bagian pengaturan navbar*/
+nav ul {
+ background: black;
+ padding: 10 px;
+ list-style: none;
+ 
+ display: inline-table;
+ width: 100%;
+ opacity: 0.7;
+
+}
+/*pengaturan posisi navbar*/
+nav ul li{
+ float:left;
+ 
+}
+/*warna navbar*/
+nav ul li:hover{
+ background:grey;
+}
+
+nav ul li:hover a{
+
+}
+/*bagian warna hurf navbar*/
+nav ul li a{
+ display: block;
+ padding: 40px;
+ color: white;
+ text-decoration: none;/*buat underline*/
+}
+/*bagian sub menu*/
+nav ul ul{
+ background: #53bd84;
+ border-radius: 0px;
+ padding: 100; /*ngatur besar sub menu*/
+ /* position: absolute; */
+ top:100%;
+}
+/*pengaturan posisi sub menu*/
+nav ul ul li{
+ float:none;
+ border-top: 1px soild #53bd84;
+ border-bottom: 1px solid #53bd84;
+ position: relative;
+}
+/*ukuran sub menu*/
+nav ul ul li a{
+ padding: 15px 40px;
+ color: #fff;
+}
+
+
+nav ul ul li a:hover{
+ background-color: #666;
+}
+/*gak tau gunanya*/
+nav ul ul ul{
+ position: absolute;
+ left: 100%;
+ top: 0;
+}
+
+/*SEARCH*/
+form {
+    width:opx;
+    margin:auto 20px;
+	
+}
+/*.search {
+    padding:15px 20px;
+	margin : 20px;
+    background:rgba(50, 50, 50, 0.9);
+    border:0px solid #dbdbdb;
+	position : middle;
+}	<input class="search" type="text" placeholder="Search..." required>*/
+.button {
+    padding:10px 15px;
+    left:-8px;
+    border:40px solid black;
+    background-color:red;
+    color:#fafafa;
+
+}
+.button:hover  {
+    background-color:gold ;
+    color:black;
+}
+body,html{
+	height : 100%;
+}
+.bg{
+	background-image : url("lemina3.JPG");
+	height: 100%;
+	width: 100%;
+	background-position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+/*background about
+.back{
+	background-image : url("lemina6.JPG");
+	height: full;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}*/
+.content {
+	width:80%;
+	height:auto;
+	margin : 0 auto;
+	position: absolute;
+	z-index: 5;
+	padding :30px;
+	text-align: left;
+	
+}
+/* */
+
