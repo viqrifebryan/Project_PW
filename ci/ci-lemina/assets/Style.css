@@ -1,0 +1,252 @@
+* {margin:0; padding:0;}
+ /*Bagian Isi*/
+body {
+ background:white;
+ font-family:Arial, Helvetica, sans-serif;
+ 
+}
+/*Bagian Jarak Sub menu Navbar*/
+nav {
+ margin:auto;
+ text-align: center;
+ width: 100%;
+ position : fixed;
+
+} 
+
+
+/*Bagian untuk menyembunyikan sub menu navbar*/
+nav ul ul {
+ display: none;
+}
+/*Bagian untuk mengatur sub menu navbar*/
+nav ul li:hover > ul{
+background : black;
+display : block;
+width: 300px;
+
+}
+/*Bagian pengaturan navbar*/
+nav ul {
+ background: black;
+ padding: 10 px;
+ list-style: none;
+ 
+ display: inline-table;
+ width: 100%;
+ opacity: 0.85;
+
+}
+/*pengaturan posisi navbar*/
+nav ul li{
+ float:left;
+ 
+}
+/*warna navbar*/
+nav ul li:hover{
+ background:grey;
+}
+
+nav ul li:hover a{
+
+}
+/*bagian warna hurf navbar*/
+nav ul li a{
+ display: block;
+ padding: 40px;
+ color: white;
+ text-decoration: none;/*buat underline*/
+}
+/*bagian sub menu*/
+nav ul ul{
+ background: #53bd84;
+ border-radius: 0px;
+ padding: 100; /*ngatur besar sub menu*/
+ /* position: absolute; */
+ top:100%;
+}
+/*pengaturan posisi sub menu*/
+nav ul ul li{
+ float:none;
+ border-top: 1px soild #53bd84;
+ border-bottom: 1px solid #53bd84;
+ position: relative;
+}
+/*ukuran sub menu*/
+nav ul ul li a{
+ padding: 15px 40px;
+ color: #fff;
+}
+
+
+nav ul ul li a:hover{
+ background-color: #666;
+}
+/*gak tau gunanya*/
+nav ul ul ul{
+ position: absolute;
+ left: 100%;
+ top: 0;
+}
+
+/*SEARCH*/
+form {
+    width:opx;
+    margin:auto 20px;
+}
+/*.search {
+    padding:15px 20px;
+	margin : 20px;
+    background:rgba(50, 50, 50, 0.9);
+    border:0px solid #dbdbdb;
+	position : middle;
+}	<input class="search" type="text" placeholder="Search..." required>*/
+.button {
+    padding:10px 15px;
+    left:-8px;
+    border:40px solid black;
+    background-color:red;
+    color:#fafafa;
+
+}
+.button:hover  {
+    background-color:gold ;
+    color:black;
+}
+body,html{
+	height : 100%;
+}
+.bg{
+	background-image : url("lemina3.JPG");
+	height: 100%;
+	width: 100%;
+	background-position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+/*background about
+.back{
+	background-image : url("lemina6.JPG");
+	height: full;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}*/
+.content {
+	-webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 2;	
+	
+}
+/*.column.left{
+	margin:30px;
+}*/
+
+.img.tengah{
+	float: center		;
+	margin:5px;
+}
+.border{
+	margin: 20px;
+		
+}
+.column2{
+	-webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 2;
+}
+.gambar{
+	margin:40px;
+}
+/*.bg2{
+	background-image : url("fcar2.JPG");
+
+	background-position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+}*/
+/* */
+/*Model newton*/
+.bg-model{
+	background-image : url("lemina9	.JPG");
+	height: 85%;
+	width: 100%;
+	background-position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+} 
+/*form signIn - signUp*/
+	.formSign {
+		margin: 0px 430px;
+	}
+
+	/* Full-width inputs */
+	input[type=field], input[type=password] {
+		font-family: Open Sans;
+		width: 100%;
+		padding: 10px 13px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+
+	/* Set a style for all buttons */
+	.signButton {
+		font-family: Open Sans;
+		background-color: #dcdddd;
+		color: black;
+		padding: 10px 10px;
+		margin: 20px 0px;
+		border: none;
+		cursor: pointer;
+		width: 20%;
+	}
+
+	/* Add a hover effect for buttons */
+	.signButton:hover {
+		opacity: 0.8;
+	}
+
+	/* Center the avatar image inside this container */
+	.imgcontainer {
+		text-align: center;
+		margin: 24px 0 12px 0;
+	}
+
+	/* Add padding to containers */
+	.container {
+		padding: 16px;
+	}
+/*form signIn - signUp -- end*/
+
+/*footer*/
+	.footer{
+		font-family:Open Sans;
+		color:white;
+		height: 200px;
+		width: 400%px;
+		background: #1b1e23;
+		bottom: 0;
+	}
+	.icon-bar {
+		overflow: visible;
+	}
+	.icon-bar a {
+		padding: 20px 8px;
+		transition: all 0.3s ease;
+	}
+	.icon-bar a:hover {			
+		/*Bikin jadi transparan kalo di hover*/
+		opacity: 0.5;
+	}
+/*footer --- end*/
+
+/*Isi*/
+	.isi{
+		font-family: Open Sans;
+		color:black;
+	}
+/*Isi -- end*/
