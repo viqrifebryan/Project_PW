@@ -3,7 +3,18 @@
 <head>
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/Style.css">
-	
+	<script>
+        function validate() {
+		    if(!document.getElementById("psw").value == document.getElementById("confirm_psw").value){
+		    	alert("Passwords do no match");
+		    	return true;
+		    }
+		    else{
+		    	alert("Lah?");
+		    	return false;
+		    }
+		}
+    </script>
 </head>
 <body width="50%">
 	<nav>
@@ -42,7 +53,13 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
+			<p align ="right" style="font-size: 17px; color: white;">
+				<?php if($this->session->has_userdata('userName')) {
+					echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a>
+				<?php } ?>
 				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
 				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
 			</p>
@@ -50,7 +67,7 @@
 	</nav>
 	
 	<br><br><br><br><br>
-	<form action="/action_page.php">
+	<form onSubmit="validate()" action="<?php echo site_url('C_Lemina/input_data');?>" method="post" >
 		<div class="imgcontainer">
 			<img src="<?php echo base_url();?>/assets/img/lemina-icon.png" alt="sessi" width="200" height="200">
 		</div>
@@ -61,24 +78,34 @@
 			<label>Name</label>
 			<input type="field" placeholder="Enter Username" name="name" required><br>
 
+			<label>Sign As</label><br>
+			<label class="radio-inline"><input type="radio" name="role" value="0"> User</label>
+        	<label class="radio-inline"><input type="radio" name="role" value="1"> Dealer</label><br><br>
+
 			<label>Address</label>
-			<input type="field" placeholder="Enter Address" name="addr" required><br>
+			<input type="field" placeholder="Enter Address" name="address" required><br>
 			
-			<label>Sex</label>
-			<input type="field" placeholder="Enter Sex" name="sex" required><br>
+			<label>Sex</label><br>
+			<label class="radio-inline"><input type="radio" name="sex" value="M"> Man</label>
+        	<label class="radio-inline"><input type="radio" name="sex" value="W"> Woman</label><br><br>
+
+        	<label>Tanggal Lahir</label><br>
+			<input type="date" placeholder="Enter Tanggal Lahir" name="tgl_lahir" required><br><br>
 			
 			<label>Email</label>
 			<input type="field" placeholder="Enter Email" name="email" required><br>
 			
 			<label>Password</label>
 			<input type="password" placeholder="Enter Password" name="psw" required>
-			
+
+			<label>Confirm Password</label>
+			<input type="password" placeholder="Confirm Password" name="confirm_psw" data-match="psw" data-match-error="Password tidak cocok" required>
+
 			<p align="right"><input type="checkbox" checked="checked">Accept Terms and Agreements
 			<button type="submit" class="signButton">Sign Up</button></p>
 
 			<p align="center" style="font-size:15px">Already have an account? 
 			<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">Sign In</a></p>
-			<a href="<?php echo base_url();?>index.php/C_Lemina/profile">test profile</a>
 		</div>
 	</form>
 	<br><br><br>

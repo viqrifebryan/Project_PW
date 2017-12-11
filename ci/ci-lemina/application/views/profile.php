@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign In</title>
+	<title>User Profile</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/Style.css">
 	
 </head>
-<body width="50%">
+<body>
 	<nav>
 		<ul>
 			<a href="<?php echo base_url();?>C_Lemina/index">
@@ -49,40 +49,33 @@
 					<?php echo $this->session->userdata('userName'); ?>
 					</a>
 				<?php } ?>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
 			</p>
 		</ul>
 	</nav>
 	
-	<br><br><br><br><br>
-	<form action="<?php echo site_url('C_Lemina/authenticate');?>" method="post">
-		<div class="imgcontainer">
-			<img src="<?php echo base_url();?>/assets/img/lemina-icon.png" alt="sessi" width="200" height="200">
-		</div>
-		
-		<h3 align="center">SIGN IN</h3>
-		
-		<div class="container, formSign">
-			<label>Email</label>
-			<input type="field" placeholder="Enter Email" name="email" required><br>
-			
-			<label>Password</label>
-			<input type="password" placeholder="Enter Password" name="psw" required><br>
-			
-			<p align="right"><input type="checkbox" checked="checked"> Remember me
-			<button type="submit" class="signButton">Sign In</button></p>
-			
-			<p align="center" style="font-size:15px">Forgot 
-			<a href="<?php echo site_url('C_Lemina/forget');?>">password?</a></p>
-			
-			<p align="center" style="font-size:15px">Didn't have an account? 
-			<a href="<?php echo base_url();?>index.php/C_Lemina/SignUp">Sign Up</a></p>
-		</div>
-	</form>
+	<img class="bg" src="<?php echo base_url();?>/assets/img/profile_head.jpg">
+	<div class = "content">
+		<h1>Welcome <?php echo$this->session->userdata('userName');?></h1>
+		<br>
+		<img src="<?php if($this->session->userdata('userRole') == 1) echo base_url("assets/img/profile_dealer.png");
+			else echo base_url("assets/img/profile_user.png");?>" alt="sessi" width="200" height="200" align="left" style="margin:15px">
+
+		<p> <br><br>
+			User name : <?php echo $this->session->userdata('userName');?> <br>
+			Email : <?php echo $this->session->userdata('userID');?> <br>
+			Birth date : <?php echo $this->session->userdata('userBirthDate');?> <br>
+			Sex : <?php if($this->session->userdata('userSex') == "M") echo "Man";
+				else echo "Woman";?> <br>
+			Address : <?php echo $this->session->userdata('userAddress');?> <br>
+			Account type : <?php if($this->session->userdata('userRole') == 1) echo "Dealer";
+				else echo "Driver";?> <br>
+		</p>
+		<br><br><br>
+		<a href="<?php echo base_url("C_Lemina/log_out");?>">
+		<img src="<?php echo base_url("assets/img/profile_signout.png");?>" width="30" height="30" align="left"> Sign Out </a>
+	</div>
 	
 	<br><br><br>
-	
 	<div class="footer" align="center">
 		<br><br><br><br><br>
 		<div class="icon-bar" >
@@ -95,5 +88,6 @@
 			<p style="font-size:14px">Copyright © 2017 RaditRaihanViqri Company. All rights reserved.</p>
 		</div>
 	</div>
+	
 </body>
 </html>
