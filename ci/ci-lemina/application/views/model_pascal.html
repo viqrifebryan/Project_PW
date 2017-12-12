@@ -33,7 +33,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -42,19 +42,79 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
+	<!-- Gambar atas -->	
+<img class="bg" src="<?php echo base_url();?>/assets/img/aston5.jpg">
+
+
+<!-- text dan gambar pertama -->
+<div class = "content">
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+
+<h1>Lemina Pascal Interior</h1>
+	<br>
+	<p>
+All mid-engined LP12 Pascal of the past 40 years have had scissor doors, a tradition the Lemina Pascal is not about to break.
+
+They draw gasps from your passenger but offer only rather awkward access to the interior and an inelegant
+ escape during which the tall must take care not to crack their cranium on the upswept edge of the door.
+ Once inside, however, there is a feast for your eyes in the form of a TFT instrument panel that looks like a refugee from some abandoned skunkworks 
+ fighter aircraft. And unlike most eye-catching instruments, this one also really works. So it’s such a shame to see a central navigation display 
+ plundered from a previous-generation Audi A4, along with its barely disguised MMI switchgear.
+</div>
+<img src="<?php echo base_url();?>/assets/img/aston2.jpg" style= "margin:50px; padding-left:5px; border-radius: 200px; height: 300px;"></a>
+</div>	
+
+<!-- text dan gambar kedua -->	
+	<div class = "content">
+	<img src="<?php echo base_url();?>/assets/img/aston3.jpg" style= " padding-left:20px; margin:50px; border-radius: 250px; height: 380px;"></a>
+	<div style= "padding-left:10px; margin:30px ; font-family:Maiandra GD;text-align:justify;"> 
+	<br><br><br>
+	<p>
+	<h1>Lemina. The fastest cars in the world. The highest speed of supercars.</h1>
+<br></br>
+The Lemina brand is known for creating incredibly fast vehicles. In fact, the Lemina is one of Hollywood’s go-to cars when they need style,
+ luxury and -of course- speed. One of the brand’s top models for speed is the Pascal sports coupe. But exactly how fast is the Lemina Pascal?
+ Here we’ll discuss the impressive model’s tops speed as well as its acceleration times.
+
+Under the hood of the powerful Lemina Pascal is a massive 6.5-liter V12 engine that’s able to produce a huge amount of horsepower. 
+Depending on your model the 2017 Lemina Pascal is able to produce between 691 and 740 horsepower, which is more than enough to make
+ the hair on the back of your neck stand on edge.
+With this impressive engine, the Lemina Pascal is able to reach a top speed of 220 miles per hour. Adrenaline junkies are sure 
+to enjoy the amazing speed of the Pascal. In addition to reaching an amazing top speed, the Lemina Pascal is also quick out of the gate.
+
+Thanks to its amazing 507 lb-ft of torque, the Aventador is able to offer amazing acceleration. From a complete stop, the Lemina Pascal is able to go 
+from 0 to 60 miles per hour in an amazing 2.9 seconds.
+</div>
+	</p></div>
 	
-	<div class = "isi">
-		<pre><font size = "66"> 
-	
-  LEMINA PASCAL </font></pre>
-	</div>
-	
+	<?php 
+		if($this->session->has_userdata('userName')) { ?>
+			<form action="<?php echo site_url('C_Lemina/wishList');?>" method="post" >
+			<input type="hidden" name="product_id" value="A002"> <br>
+			<p align = "right"> <button type="submit" class="signButton" style="margin-right: 40px;"> Add to wished item </button> </p>
+			
+			<?php 
+		} 
+		else { ?>
+			<p align = "right"><a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">
+			<button type="submit" class="signButton" style = "margin-right: 40px;"> Add to wished item </button></a></p>
+			<?php 
+		} 
+		?>
 	
 	<div class="footer" align="center">
 		<br><br><br><br><br>

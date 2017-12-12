@@ -8,7 +8,8 @@ class C_Lemina extends CI_Controller {
         parent::__construct();
             $this->load->helper('url');
             $this->load->library('session');
-
+            $this->load->library('user_agent');
+           
     }   
     /* Session */
         public function log_in($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress){
@@ -30,6 +31,8 @@ class C_Lemina extends CI_Controller {
             $this->session->sess_destroy();
             $this->load->view('inti.html');
         }
+
+
     /* Session -- End */
 
     /* Database */
@@ -52,7 +55,6 @@ class C_Lemina extends CI_Controller {
                 //Redirect
                 $data['pegawai'] = $this->M_Lemina->getUserData($userID);
                 $this->log_in($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress);
-                var_dump($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress);
                 $this->index();
             }
             else
@@ -102,6 +104,19 @@ class C_Lemina extends CI_Controller {
             }
 
         }
+
+        /*fuction buat wishlist*/
+        public function wishList(){
+            $userID = $this->session->userdata('userID');
+            $productID = $this->input->post('product_id');        
+
+            $this->load->model('M_Lemina');
+            $this->M_Lemina->wish($userID, $productID);
+
+            Redirect($_SERVER['HTTP_REFERER']);
+
+        }
+
     /* Database -- End */
 
     /* Page */
@@ -167,7 +182,10 @@ class C_Lemina extends CI_Controller {
         }
         public function profile()
         {
-            $this->load->view('profile');
+            $userID = $this->session->userdata('userID');
+            $this->load->model('M_Lemina');
+            $dataID['dataID'] = $this->M_Lemina->wishList($userID);
+            $this->load->view('profile', $dataID);
         }
         public function forget()
         {

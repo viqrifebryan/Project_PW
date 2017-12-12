@@ -33,7 +33,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -42,20 +42,44 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
-	
-	<div class = "isi">
-		<pre><font size = "66"> 
-	
-  ENGINE </font></pre>
-	</div>
-	
-	
+	<img class="bg" src="<?php echo base_url();?>/assets/img/mesin1.jpg">
+	<!-- text dan gambar pertama -->
+<div class = "content">
+<img src="<?php echo base_url();?>/assets/img/mesin2.jpg" style= "margin:50px; padding-left:20px; border-radius: 250px; height: 350px;"></a>
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+<br><br><br>
+<h1>THE BEST V10</h1>
+	<br>
+	<p>
+The V10 is the result of mating two even-firing straight-5 engines together. 
+The straight-5 engine shows first and second order rocking motion. 
+Here it should be assumed that the crankshaft with low second-order vibration 
+is used and the first order is balanced by a balance shaft. By mating the straight-5 
+banks at 90 degrees and using five throws, the balance shafts balance each other and become null.
+ The firing sequence is odd. Using an 18° split journal 
+ crankshaft the firing order can be made even, and the two balanced shafts do not balance each other 
+ completely, but are combined into a single very small balance shaft . 
+ Using a five-throw crankshaft and 72° bank angle the firing order can be made even, and the two 
+ balanced shafts do not balance each other completely, but are combined into a single small balance shaft
+ . A 36° degree bank angle and a 108° flying arm crankshaft would allow even firing without 
+ a balance shaft and smaller counterweights, but would be impractical.
+</div>
+</div>	
+
 	<div class="footer" align="center">
 		<br><br><br><br><br>
 		<div class="icon-bar" >

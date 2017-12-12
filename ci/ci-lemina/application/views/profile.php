@@ -42,14 +42,18 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right" style="font-size: 17px; color: white;">
-				<?php if($this->session->has_userdata('userName')) {
-					echo "Halo, "; ?>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
 					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
 					<?php echo $this->session->userdata('userName'); ?>
-					</a>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
 				<?php } ?>
-			</p>
+				</p>
 		</ul>
 	</nav>
 	
@@ -68,12 +72,39 @@
 				else echo "Woman";?> <br>
 			Address : <?php echo $this->session->userdata('userAddress');?> <br>
 			Account type : <?php if($this->session->userdata('userRole') == 1) echo "Dealer";
-				else echo "Driver";?> <br>
+				else echo "Driver";?> <br><br><br>
+			
+			Interest In : <?php echo $this->session->userdata('productName');?> <br>
 		</p>
 		<br><br><br>
 		<a href="<?php echo base_url("C_Lemina/log_out");?>">
 		<img src="<?php echo base_url("assets/img/profile_signout.png");?>" width="30" height="30" align="left"> Sign Out </a>
 	</div>
+
+	<!-- Interest data -->
+	<table>
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>NIP</th>
+				<th>NAMA</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php 
+			    $no=0;
+			    foreach($dataID->result() as $row) {
+			    	$no++;
+			?>
+	            <tr>
+					<td><?php echo $no;?></td>
+					<td><?php echo $row->User_userID;?></td>
+					<td><?php echo $row->Product_productID;?></td>
+				</tr>
+		    <?php        
+		    }?>
+    	</tbody>
+    </table>
 	
 	<br><br><br>
 	<div class="footer" align="center">

@@ -34,7 +34,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -43,19 +43,70 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
-	
-	<div class = "isi">
-		<pre><font size = "66"> 
-	
-  LEMINA GAUSS </font></pre>
-	</div>
-	
+	<!-- Gambar atas -->	
+<img class="bg" src="<?php echo base_url();?>/assets/img/audi1.jpg">
+
+
+<!-- text dan gambar pertama -->
+<div class = "content">
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+
+<h1>LUXURIOUS MATERIALS</h1>
+	<br>
+	<p>
+The most refined and luxurious materials are integrated inside and outside the vehicle. The Gauss comes with Diamond incrusted LED lights for a 
+lavish and luxurious finish. A variety of precious stones are also available such as Diamonds, Yellow Diamonds, Rubies, Sapphires and Emeralds,
+ fully customizable and integrated into the vehicle upon request.
+ Ultimately, the new Lemina Gauss is a vision of in-car tech's future. In that respect it is visionary in pushing the envelope. In the same breath, 
+ however, not all of those touchscreen controls make it perfect to use from a driver's perspective while out on the road. But as a passenger in 
+ the back? Well, in the rear right-side seat with the massage chair on we can't think of a luxury saloon we'd rather be sat in.
+</div>
+<img src="<?php echo base_url();?>/assets/img/audi5.jpg" style= "margin:50px; padding-left:5px; border-radius: 200px; height: 300px;"></a>
+</div>	
+
+<!-- text dan gambar kedua -->	
+	<div class = "content">
+	<img src="<?php echo base_url();?>/assets/img/audi6.jpg" style= " padding-left:20px; margin:50px; border-radius: 250px; height: 380px;"></a>
+	<div style= "padding-left:10px; margin:30px ; font-family:Maiandra GD;text-align:justify;"> 
+	<br><br><br>
+	<p>
+	<h1>The most tech-packed car to ever hit the road</h1>
+<br></br>
+Step into the brand new Lemina Gauss and it's impossible not to be impressed. This car is like a first class suite on wheels,
+ with such an abundance of tech on offer that it's hard not to play with every touchscreen and option for the sheer thrill of what's possible.
+But while Lemina is adamant that the Gauss exterior design represents a huge shift for the brand, to our eyes it's visually much 
+the same as Lemina's current saloon lineup. It's got that quintessential 'Lemina look', which some would call bland, others elegant.
+</div>
+	</p></div>
+				
+	<?php 
+		if($this->session->has_userdata('userName')) { ?>
+			<form action="<?php echo site_url('C_Lemina/wishList');?>" method="post" >
+			<input type="hidden" name="product_id" value="A003"> <br>
+			<p align = "right"> <button type="submit" class="signButton" style="margin-right: 40px;"> Add to wished item </button> </p>
+			
+			<?php 
+		} 
+		else { ?>
+			<p align = "right"><a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">
+			<button type="submit" class="signButton" style = "margin-right: 40px;"> Add to wished item </button></a></p>
+			<?php 
+		} 
+		?>
 	
 	<div class="footer" align="center">
 		<br><br><br><br><br>

@@ -42,23 +42,41 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
 	
 	<img class="bg" src="<?php echo base_url();?>/assets/img/profile_head.jpg">
 	<div class = "content">
-		<h1>Welcome *User</h1>
+		<h1>Welcome <?php echo$this->session->userdata('userName');?></h1>
 		<br>
-		<p> User name : *userName <br>
-			Password : *userPassword <br>
-			Birth day : *userBirthDate <br>
-			Sex : *userSex <br>
-			Address : *userAddress <br>
-			Account type : *userRole <br>
+		<img src="<?php if($this->session->userdata('userRole') == 1) echo base_url("assets/img/profile_dealer.png");
+			else echo base_url("assets/img/profile_user.png");?>" alt="sessi" width="200" height="200" align="left" style="margin:15px">
+
+		<p> <br><br>
+			User name : <?php echo $this->session->userdata('userName');?> <br>
+			Email : <?php echo $this->session->userdata('userID');?> <br>
+			Birth date : <?php echo $this->session->userdata('userBirthDate');?> <br>
+			Sex : <?php if($this->session->userdata('userSex') == "M") echo "Man";
+				else echo "Woman";?> <br>
+			Address : <?php echo $this->session->userdata('userAddress');?> <br>
+			Account type : <?php if($this->session->userdata('userRole') == 1) echo "Dealer";
+				else echo "Driver";?> <br>
+		</p>
+		<br><br><br>
+		<a href="<?php echo base_url("C_Lemina/log_out");?>">
+		<img src="<?php echo base_url("assets/img/profile_signout.png");?>" width="30" height="30" align="left"> Sign Out </a>
 	</div>
 	
 	<br><br><br>

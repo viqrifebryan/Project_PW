@@ -33,7 +33,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -42,18 +42,41 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
-	
-	<div class = "isi">
-		<pre><font size = "66"> 
-	
-		BRAKE </font></pre>
-	</div>
+	<img class="bg" src="<?php echo base_url();?>/assets/img/Brakes2.jpg">
+	<!-- text dan gambar pertama -->
+<div class = "content">
+<img src="<?php echo base_url();?>/assets/img/rem2.jpg" style= "margin-left:200px; margin-top:50px; margin-bottom: 50px;border-radius: 250px; height: 350px;"></a>
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+<br><br><br>
+<h1>BRIDGESTONE'S BRAKES : METALLIC </h1>
+	<br>
+	<p>
+The final type of brake pad is the semi-metallic brake pad, often referred to as just “metallic brake pad”. 
+Metallic brake pads are comprised of anywhere between 30% and 70% metals including copper, iron, steel, or other 
+composite alloys. These various metals are combined with graphite lubricant as well as other fillers to complete 
+the brake bad. The metallic brake pad compounds that are available vary, with each offering their own advantages 
+for different situations as diverse as daily commutes to track racing.
+
+<br><br>Performance-driven drivers prefer the metallic brake pads because they offer improved braking performance 
+in a much wider range of temperatures and conditions. Because metals are such a good conductor of heat, they tend to 
+be able to withstand more heat while simultaneously helping braking systems cool back down more quickly. They also don’t 
+compress as much as organic brakes, meaning less pressure needs to be applied to the brake pedal to affect stopping ability.
+</div>
+</div>	
 	
 	
 	<div class="footer" align="center">

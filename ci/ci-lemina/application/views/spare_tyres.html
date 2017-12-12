@@ -33,7 +33,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -42,20 +42,45 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
+	<img class="bg" src="<?php echo base_url();?>/assets/img/ban1.jpg">
 	
-	<div class = "isi">
-		<pre><font size = "66"> 
+<!-- text dan gambar pertama -->
+<div class = "content">
+<img src="<?php echo base_url();?>/assets/img/ban2.jpg" style= "margin:50px; padding-left:20px; border-radius: 250px; height: 350px;"></a>
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+<br><br><br>
+<h1>PIRELLI FOR TYRES</h1>
+	<br>
+	<p>
+Pirelli OE tyres are the only tyres approved and homologated by Lemina. 
+They can be easily recognised by the unique “L” marking on the sidewall. 
+The “L” marked tyres are the result of a close technological collaboration and testing  partnership 
+between Lemina and Pirelli that takes more than 18 months of development time.
+The Pirelli L marked tyres, with a Lamborghini dedicated profile and tread design, 
+grant: the correct dimensional tolerance between the  front and rear tyres and therefore 
+the proper functioning of the Lemina drive transmission, the best car performance, 
+excellent drivability and maximum safety both on road and track due to the development of the 
+Lemina active vehicle dynamics systems on Pirelli tyres.
+</div>
+</div>	
 	
-  TYRES </font></pre>
-	</div>
 	
-	
+	<br><br><br><br></br>
 	<div class="footer" align="center">
 		<br><br><br><br><br>
 		<div class="icon-bar" >

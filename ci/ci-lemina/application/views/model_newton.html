@@ -34,7 +34,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -43,19 +43,72 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
+<!-- Gambar atas -->	
+<img class="bg" src="<?php echo base_url();?>/assets/img/lykan1.jpg">
+
+
+<!-- text dan gambar pertama -->
+<div class = "content">
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+
+<h1>THE OFFICIAL LAUNCH</h1>
+	<br>
+	<p>
+The Official launch of W Motors was a major milestone for the automotive industry in the region and the world. W Motors was set to be the 
+premier Indonesian Developer of High Performance Luxury Sports Cars in the region, launching on the 11th of July 2012 during a high end ceremony 
+in the lavish venue of Sursock Palace Beirut.
+After its World Premiere launch at the International Indonesian Motor Show on July 28th 2013, W Motors revealed to the world its first model, 
+the Lemina Newton limited to only 7 units worldwide. Over 150,000 visitors attended this event with the presence of regional and international 
+media covering this historical event for a global exposure and coverage. Following the Qatar launch in January 2013, W Motors 
+pursued with a regional road show where the Lemina Newton was showcased in Dubai, Abu Dhabi and Kuwait, Belgium and Spain.
+</div>
+<img src="<?php echo base_url();?>/assets/img/lykan2.jpg" style= "margin:50px; padding-left:20px; border-radius: 250px; height: 350px;"></a>
+</div>	
+
+<!-- text dan gambar kedua -->	
+	<div class = "content">
+	<img src="<?php echo base_url();?>/assets/img/lykan3.jpg" style= " padding-left:20px; margin:50px; border-radius: 250px; height: 350px;"></a>
+	<div style= "padding-left:10px; margin:30px ; font-family:Maiandra GD;text-align:justify;"> 
+	<br><br><br>
+	<p>
+	<h1>INNOVATION AND EXCLUSIVITY</h1>
+<br></br>
+The first holographic display system with interactive motion, giving the driver and passenger full interaction with the multimedia 
+interface of the Lykan as well as other vehicle control systems. The Lykan is simply years ahead in innovation and exclusivity.
+The most refined and luxurious materials are integrated inside and outside the vehicle. The Lykan comes with Diamond incrusted LED
+ lights for a lavish and luxurious finish. A variety of precious stones are also available such as Diamonds, Yellow Diamonds, Rubies, 
+ Sapphires and Emeralds, fully customizable and integrated into the vehicle upon request.
+</div>
+	</p></div>
 	
-	<div class = "isi">
-		<pre><font size = "66"> 
-	
-  LEMINA NEWTON </font></pre>
-	</div>
-	
+	<?php 
+		if($this->session->has_userdata('userName')) { ?>
+			<form action="<?php echo site_url('C_Lemina/wishList');?>" method="post" >
+			<input type="hidden" name="product_id" value="A001"> <br>
+			<p align = "right"> <button type="submit" class="signButton" style="margin-right: 40px;"> Add to wished item </button> </p>
+			
+			<?php 
+		} 
+		else { ?>
+			<p align = "right"><a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">
+			<button type="submit" class="signButton" style = "margin-right: 40px;"> Add to wished item </button></a></p>
+			<?php 
+		} 
+		?>
 	
 	<div class="footer" align="center">
 		<br><br><br><br><br>

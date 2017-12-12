@@ -26,7 +26,22 @@ class M_Lemina extends CI_Model {
           return TRUE;  
       }
     
-    
+      public function wish($userID, $productID)
+      {
+        $dataID = array(
+          'User_userID' => $userID, 
+          'Product_productID' => $productID, 
+        );
+
+        if ($this->db->insert('user_buys_product', $dataID))
+          return TRUE; 
+      }
+
+      public function wishList($userID){
+        $a = $this->db->get_where('user_buys_product', array('User_userID' => $userID));
+        return $a;
+      }
+
       public function getUserData($userID){  
         $query = $this->db->get_where('user', array('userID' => $userID));
         return $query;

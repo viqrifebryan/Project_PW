@@ -42,16 +42,18 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right" style="font-size: 17px; color: white;">
-				<?php if($this->session->has_userdata('userName')) {
-					echo "Halo, "; ?>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
 					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
 					<?php echo $this->session->userdata('userName'); ?>
-					</a>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
 				<?php } ?>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+				</p>
 		</ul>
 	</nav>
 	

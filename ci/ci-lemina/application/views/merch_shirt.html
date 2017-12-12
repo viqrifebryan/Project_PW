@@ -33,7 +33,7 @@
 		
 			<li><a><b>SPARE PART</b></a>
 				<ul>
-					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRES</a></li>
+					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_tyres"><b>TYRE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_engine">ENGINE</a></li>
 					<li><a href="<?php echo base_url();?>index.php/C_Lemina/spare_brake">BRAKE</b></a></li>
 				</ul>
@@ -42,19 +42,81 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<p align ="right">
-				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<a href="<?php echo base_url();?>index.php/C_Lemina/search"><button type="submit" class="navButton">Search</button></a>
-			</p>
+			<?php if($this->session->has_userdata('userName')) { ?>
+					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
+					<?php echo "Halo, "; ?>
+					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
+					<?php echo $this->session->userdata('userName'); ?>
+					</a></p>
+				<?php } 
+				else { ?>
+					<p align ="right">
+					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+				<?php } ?>
+				</p>
 		</ul>
 	</nav>
+
+<!-- Gambar atas -->	
+<img class="bg" src="<?php echo base_url();?>/assets/img/kaos1.jpg">
+
+
+<!-- text dan gambar pertama -->
+<div class = "content">
+<div  style= " margin:50px ; font-family:Maiandra GD;text-align:justify;"> 
+
+<h1>SHIRT OF REAL MEN</h1>
+	<br>
+	<p>
+Lemina aims to reduce weight and to increase the availability of electric energy using structural electric energy storing
+ composites as a rechargeable battery. The target is to improve the nanomaterial technology, diffusing nano-charges in CFK-based
+ panels able to store electric energy and in the meantime to form the body and structures of the car. At the same time, the 
+ project aims to combine the technology to monitor continuously the whole carbon fiber structure, both visible and invisible, 
+ with the concept of health-monitoring: the goal is to provide for the Terzo Millennio the ability to conduct its own 
+ health-monitoring, to detect cracks and damages that might occur after accident, throughout its substructure, while limiting 
+ or reducing to zero the risks correlated to the presence and propagation of cracks in the carbon fiber structure.
+</div>
+<img src="<?php echo base_url();?>/assets/img/kaos2.jpg" style= "margin:50px; padding-left:20px; border-radius: 250px; height: 350px;"></a>
+</div>	
+
+<!-- text dan gambar kedua -->	
+	<div class = "content">
+	<img src="<?php echo base_url();?>/assets/img/kaos3.jpg" style= " padding-left:20px; margin:50px; border-radius: 250px; height: 350px;"></a>
+	<div style= "padding-left:10px; margin:30px ; font-family:Maiandra GD;text-align:justify;"> 
+	<br><br><br>
+	<p>
+	<h1>NOT AN ORDINARY STUFF</h1>
+<br></br>
+The sports car of the future uses electricity instead of gasoline. Electric systems generate high efficiency and offer several 
+interesting characteristics like the possibility to recover kinetic energy and to deliver huge peaks of power. 
+In order to take the most from the opportunities offered by electrification, the accumulation system must be 
+power-oriented and symmetrical, to allow high performances and the greatest energy recovery possible. 
+To harvest this opportunity, today’s batteries are not enough and a big leap forward is needed: Lemina aim is 
+to develop an innovative supercapacitor able to close the gap with conventional batteries in terms of energy density, 
+preserving an outstanding power density.
+</div>
+	</p></div>
+	<br><br><br><br></br>
 	
-	<div class = "isi">
-		<pre><font size = "66"> 
+	<?php 
+		if($this->session->has_userdata('userName')) { ?>
+			<form action="<?php echo site_url('C_Lemina/wishList');?>" method="post" >
+			<input type="hidden" name="product_id" value="B001"> <br>
+			<p align = "right"> <button type="submit" class="signButton" style="margin-right: 40px;"> Add to wished item </button> </p>
+			
+			<?php 
+		} 
+		else { ?>
+			<p align = "right"><a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">
+			<button type="submit" class="signButton" style = "margin-right: 40px;"> Add to wished item </button></a></p>
+			<?php 
+		} 
+		?>
 	
-  SHIRT </font></pre>
+	<div style = "margin-bottom: 15px; background-color: #f44336; color: white; margin-right:20px ; font-family:Maiandra GD;text-align:right; padding-right:20px"> 
+	visit www.leminastore.com for products!
 	</div>
-	
+	<br>
 	
 	<div class="footer" align="center">
 		<br><br><br><br><br>
