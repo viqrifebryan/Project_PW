@@ -46,19 +46,29 @@ class C_Lemina extends CI_Controller {
             $userBirthDate = $this->input->post('tgl_lahir');
             $userID = $this->input->post('email');
             $userPassword = $this->input->post('psw');
+            $confirm_psw = $this->input->post('confirm_psw');
 
             //Into database
             $this->load->model('M_Lemina');
-                
-            if ($this->M_Lemina->input($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress))
-            {
-                //Redirect
-                $data['pegawai'] = $this->M_Lemina->getUserData($userID);
-                $this->log_in($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress);
-                $this->index();
+            
+            if ($userPassword != $confirm_psw){
+                $data = array('error_message' => 'Password did not match');
+                $this->load->view('SignUp.html', $data);
             }
-            else
-                return false;   
+            else{
+               if ($this->M_Lemina->input($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress))
+                {
+                    //Redirect
+                    $data['pegawai'] = $this->M_Lemina->getUserData($userID);
+                    $this->log_in($userID, $userRole, $userPassword, $userName, $userBirthDate, $userSex, $userAddress);
+                    $this->index();
+                }
+                else{
+                    $data = array('signError_message' => 'Email already taken');
+                    $this->load->view('SignUp.html', $data);  
+                }
+            }
+              
         }         
 
         public function hapus_data(){
@@ -75,10 +85,40 @@ class C_Lemina extends CI_Controller {
         {
             $userID = $this->input->post('email');
             $userPassword = $this->input->post('psw');
+            $confirmPassword = $this->input->post('confirm_psw');
             //changing
+            if ($userPassword != $confirmPassword){
+                $data = array('error_message' => 'Password did not match');
+                $this->load->view('forget_enterNew.html', $data);
+            }
+            else{
+                $this->load->model('M_Lemina');
+                if($this->M_Lemina->gantiPass($userID, $userPassword)){
+                    $this->session->unset_userdata('userID');
+                    $this->SignIn();
+                }
+                else{
+
+                }
+            }
+            
+        }
+
+        public function cekGanti(){
+            $userID = $this->input->post('email');
+            $userName = $this->input->post('userName');
+            $userBirthDate = $this->input->post('userBirthDate');
             $this->load->model('M_Lemina');
-            $this->M_Lemina->gantiPass($userID, $userPassword);
-            $this->load->view('inti.html');
+            if($this->M_Lemina->cekGanti($userID, $userName, $userBirthDate)){
+                $data = array('userID' => $userID);
+                $this->session->set_userdata($data);
+                $this->load->view('forget_enterNew.html');
+            }
+            else{
+                $data = array('error_message' => 'Data did not Match');
+                $this->load->view('forget.html', $data);
+            }
+            
         }
 
         public function authenticate(){
@@ -98,9 +138,8 @@ class C_Lemina extends CI_Controller {
                 $this->index();
             }
             else{
-                $message = "SALAH GOBLOG";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-                $this->load->view('inti.html');
+                $data = array('error_message' => 'Invalid Username or Password');
+                $this->load->view('SignIn.html', $data);
             }
 
         }

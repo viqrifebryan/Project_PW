@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
+	<title>Sign In</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/Style.css">
-	<script>
-        function validate() {
-		    if(!document.getElementById("psw").value == document.getElementById("confirm_psw").value){
-		    	alert("Passwords do no match");
-		    	return true;
-		    }
-		    else{
-		    	alert("Lah?");
-		    	return false;
-		    }
-		}
-    </script>
+	
 </head>
 <body width="50%">
 	<nav>
@@ -53,52 +42,25 @@
 				<a href="<?php echo base_url();?>index.php/C_Lemina/about"><b>ABOUT</b></a>
 			</li>
 			
-			<?php if($this->session->has_userdata('userName')) { ?>
-					<p align ="right" style="font-size: 17px; color: white; margin:37px;">
-					<?php echo "Halo, "; ?>
-					<a href="<?php echo base_url();?>index.php/C_Lemina/profile">
-					<?php echo $this->session->userdata('userName'); ?>
-					</a></p>
-				<?php } 
-				else { ?>
-					<p align ="right">
-					<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
-				<?php } ?>
-				</p>
-				
+			<p align ="right">
+				<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn"><button type="submit" class="navButton">Login</button></a>
+			</p>
 		</ul>
 	</nav>
 	
 	<br><br><br><br><br>
-	<form onSubmit="validate()" action="<?php echo site_url('C_Lemina/input_data');?>" method="post" >
+	<form action="<?php echo site_url('C_Lemina/gantiPass');?>" method="post">
 		<div class="imgcontainer">
 			<img src="<?php echo base_url();?>/assets/img/lemina-icon.png" alt="sessi" width="200" height="200">
 		</div>
 		
-		<h3 align="center">SIGN UP</h3>
+		<h3 align="center">ENTER NEW PASSWORD?</h3>
 		
 		<div class="container, formSign">
-			<label>Name</label>
-			<input type="field" placeholder="Enter Username" name="name" required><br>
+			<label>Your Email</label>
+			<input type="field" placeholder="Enter Email" value="<?php echo $this->session->userdata('userID') ?>" name="email" required><br>
 
-			<label>Sign As</label><br>
-			<label class="radio-inline"><input type="radio" name="role" value="0"> User</label>
-        	<label class="radio-inline"><input type="radio" name="role" value="1"> Dealer</label><br><br>
-
-			<label>Address</label>
-			<input type="field" placeholder="Enter Address" name="address" required><br>
-			
-			<label>Sex</label><br>
-			<label class="radio-inline"><input type="radio" name="sex" value="M"> Man</label>
-        	<label class="radio-inline"><input type="radio" name="sex" value="W"> Woman</label><br><br>
-
-        	<label>Tanggal Lahir</label><br>
-			<input type="date" placeholder="Enter Tanggal Lahir" name="tgl_lahir" required><br><br>
-			
-			<label>Email</label>
-			<input type="field" placeholder="Enter Email" name="email" required><br>
-			
-			<label>Password</label>
+			<label>Enter New Password</label>
 			<input type="password" placeholder="Enter Password" name="psw" required>
 
 			<label>Confirm Password</label>
@@ -106,22 +68,16 @@
 
 			<div align="center"><label><font color="red">
 			<?php
-				if (isset($error_message)) {
-					echo $error_message;
-				}
-				else if (isset($signError_message)){
-					echo $signError_message;
-				}	
+					if (isset($error_message)) {
+						echo $error_message;
+					}	
 			?>
 			</font></label></div>
-
-			<p align="right"><input type="checkbox" checked="checked" required>Accept Terms and Agreements
-			<button type="submit" class="signButton" >Sign Up</button></p>
-
-			<p align="center" style="font-size:15px">Already have an account? 
-			<a href="<?php echo base_url();?>index.php/C_Lemina/SignIn">Sign In</a></p>
+			
+			<p align="right"><button type="submit" class="signButton">Proceed</button></p>
 		</div>
 	</form>
+	
 	<br><br><br>
 	
 	<div class="footer" align="center">

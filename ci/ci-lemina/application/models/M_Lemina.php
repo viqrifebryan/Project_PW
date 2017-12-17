@@ -22,8 +22,20 @@ class M_Lemina extends CI_Model {
           'userAddress' => $userAddress
         );
 
-        if ($this->db->insert('user', $dataUsers))
-          return TRUE;  
+
+        $this->db->select('userID');
+        $this->db->from('user');
+        $this->db->where("userID = '".$userID."'");
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+          return FALSE;
+        } else {
+          $this->db->insert('user', $dataUsers);
+          return TRUE;
+        }
+
       }
     
       public function wish($userID, $productID)
@@ -53,6 +65,21 @@ class M_Lemina extends CI_Model {
         return $query->result();
       }
 
+      public function cekGanti($userID, $userName, $userBirthDate){
+        $condition = "userID = '".$userID."' AND userName = '".$userName."' AND userBirthDate = '". $userBirthDate ."'";
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
       public function gantiPass($userID, $userPassword){  
         $data = array(
               'userID' => $userID,
@@ -76,18 +103,17 @@ class M_Lemina extends CI_Model {
       }
 
       public function auth($userID, $userPassword){
-        if($this->db->select('*')->from('user')
-          ->group_start()
-            ->where('userID', $userID)          
-            ->where('userPassword', $userPassword)
-          ->group_end()
-          ->get())
-        {
-          // Match Found!
-          return TRUE;
-        }
-        else{
-          return FALSE;
+        $condition = "userID = '".$userID."' AND userPassword = '".$userPassword."'";
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+          return true;
+        } else {
+          return false;
         }
       }
 }

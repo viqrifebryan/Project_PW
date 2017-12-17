@@ -58,7 +58,7 @@
 	</nav>
 	
 	<br><br><br><br><br>
-	<form action="<?php echo site_url('C_Lemina/gantiPass');?>" method="post">
+	<form action="<?php echo site_url('C_Lemina/cekGanti');?>" method="post">
 		<div class="imgcontainer">
 			<img src="<?php echo base_url();?>/assets/img/lemina-icon.png" alt="sessi" width="200" height="200">
 		</div>
@@ -69,11 +69,19 @@
 			<label>Your Email</label>
 			<input type="field" placeholder="Enter Email" name="email" required><br>
 
-			<label>Enter New Password</label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
+			<label>Your User Name</label>
+			<input type="field" placeholder="Enter User Name" name="userName" required><br>
 
-			<label>Confirm Password</label>
-			<input type="password" placeholder="Confirm Password" name="confirm_psw" data-match="psw" data-match-error="Password tidak cocok" required>
+			<label>Your Birth Date</label><br>
+			<input type="date" placeholder="Enter Birth Date" name="userBirthDate" required><br>
+
+			<div align="center"><label><font color="red">
+			<?php
+					if (isset($error_message)) {
+						echo $error_message;
+					}
+			?>
+			</font></label></div>
 			
 			<p align="right"><button type="submit" class="signButton">Proceed</button></p>
 		</div>
